@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'quicksand';
+  src: url('/src/fonts/Quicksand-VariableFont_wght.ttf');
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'quicksand';
 }
 
 .container {

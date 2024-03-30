@@ -2,6 +2,7 @@ import Today from '/src/icons/today-outline.svg';
 import Week from '/src/icons/calendar-outline.svg';
 import Month from '/src/icons/calendar-number-outline.svg';
 import Sometime from '/src/icons/time-outline.svg';
+import Project from '/src/icons/grid-outline.svg';
 
 
 const menuGenerator = (() => {
@@ -55,5 +56,26 @@ const menuGenerator = (() => {
 
 })();
 
+const projectGenerator = (() => {
 
-export default menuGenerator;
+  const leftColumn = document.querySelector('#left-column');
+
+  const projectMenu = document.createElement('div');
+  projectMenu.classList.add('project-menu');
+
+  const projectHeader = document.createElement('div');
+  projectHeader.classList.add('project-header');
+  const projectIcon = new Image();
+  projectIcon.src = Project;
+  const projectTitle = document.createElement('p');
+  projectTitle.classList.add('project-title');
+  projectTitle.textContent = 'PROJECTS';
+
+  projectHeader.append(projectIcon, projectTitle);
+  projectMenu.append(projectHeader);
+  leftColumn.append(projectMenu);
+
+})();
+
+
+export default (menuGenerator, projectGenerator);

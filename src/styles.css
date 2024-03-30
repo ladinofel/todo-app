@@ -18,7 +18,7 @@ body {
 
 #left-column {
   grid-area: 1 / 1 / 3 / 2;
-  background-color: rgba(249, 240, 240, 0.94);
+  background-color: rgb(251, 246, 246);
 }
 
 #header {
@@ -36,14 +36,16 @@ img {
   height: auto;
 }
 
-.menu-icon {
+.menu-icon,
+.project-header {
   display: flex;
   gap: 10px;
   padding: 10px;
   align-items: center;
 }
 
-.left-menu {
+.left-menu,
+.project-menu {
   margin: 10vh 0 10vh 3vw;
 }
 
@@ -53,4 +55,8 @@ img {
 
 a:hover {
   cursor: pointer;
+}
+
+.project-header {
+  font-weight: 600;
 }

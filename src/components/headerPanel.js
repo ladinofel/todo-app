@@ -13,6 +13,7 @@ const headerGenerator = (() => {
   projectIcon.src = Add;
   const newProjectTitle = document.createElement('a');
   newProjectTitle.classList.add('icon-text');
+  newProjectTitle.id = 'new-project';
   newProjectTitle.textContent = 'New Project';
 
   const newTask = document.createElement('div');
@@ -21,6 +22,7 @@ const headerGenerator = (() => {
   taskIcon.src = Add;
   const newTaskTitle = document.createElement('a');
   newTaskTitle.classList.add('icon-text');
+  newTaskTitle.id = 'new-task';
   newTaskTitle.textContent = 'New Task';
 
   newProject.append(projectIcon, newProjectTitle);

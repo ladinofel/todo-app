@@ -34,7 +34,7 @@ body {
 }
 
 img {
-  width: 35px;
+  width: 2vw;
   height: auto;
 }
 
@@ -52,7 +52,7 @@ img {
 }
 
 .icon-text {
-  font-size: larger;
+  font-size:medium;
 }
 
 a {

@@ -1,18 +1,10 @@
 
-const newTaskGenerator = (() => {  
-  const newTaskBtn = document.getElementById('new-task');
-  newTaskBtn.addEventListener('click', () => {
-  newTaskForm();  
-  });
-})();
-
-
 const newTaskForm = (() => {
   const workSpace = document.querySelector('#workspace');
   const newDialog = document.createElement('dialog');
   newDialog.id = 'modal';
   const newForm = document.createElement('form');
-  newForm.id = 'taskForm';
+  newForm.id = 'task-form';
   newForm.setAttribute('method', 'get');
   newForm.setAttribute('autocomplete', 'off');
 
@@ -37,7 +29,7 @@ const newTaskForm = (() => {
   taskProjectSelect.setAttribute('name', 'task-project')
   
   const optionsBuilder = (() => {
-    const projectOptions = ['Work', 'Home', 'Leisure'];   
+    const projectOptions = ['Work', 'Home', 'Leisure', 'Other'];   
     taskProjectSelect.innerHTML = '';    
     projectOptions.forEach(function(optionText) {
       const option = document.createElement('option');
@@ -86,14 +78,22 @@ const newTaskForm = (() => {
   const optionLow = document.createElement('option');
   optionLow.textContent = 'Low';
   optionLow.value = 'low';
-  
+
+  const submit = document.createElement('div');
+  submit.classList.add('submit');
+  const submitBtn = document.createElement('button');
+  submitBtn.type = ('button');
+  submitBtn.id = ('submit-btn');
+  submitBtn.textContent = 'Create Task';
+
+  submit.append(submitBtn);
   taskPrioritySelect.append(optionHigh, optionMedium, optionLow);
   priority.append(taskPriority, taskPrioritySelect);
   dueDate.append(taskDueDate, taskDueDateInput);
   description.append(taskDescription, taskDescriptionInput);
   project.append(taskProject, taskProjectSelect);
   title.append(taskTitle, taskTitleInput);
-  newForm.append(title, project, description, dueDate, priority);
+  newForm.append(title, description, project, dueDate, priority, submit);
   newDialog.append(newForm);
   workSpace.append(newDialog);
 
@@ -101,6 +101,4 @@ const newTaskForm = (() => {
   modal.showModal();
 });
 
-
-
-export default newTaskGenerator;
+export default newTaskForm;

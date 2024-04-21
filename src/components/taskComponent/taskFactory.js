@@ -9,23 +9,24 @@ const taskCreator = (() => {
   let taskLibrary = [];
   const submitBtn = document.getElementById('submit-btn');
   submitBtn.addEventListener('click', () => {
-    let taskTitle = document.getElementById('task-title').value;
-    let taskDescription = document.getElementById('task-description').value;
-    let taskProject = document.getElementById('task-project').value;
-    let taskDueDate = document.getElementById('task-due-date').value;
-    let taskPriority = document.getElementById('task-priority').value;
-    if(taskTitle == ''){
-      alert('Please enter a title.');
-      event.preventDefault();
-    } else {
+    if(taskForm.checkValidity()){
+      let taskTitle = document.getElementById('task-title').value;
+      let taskDescription = document.getElementById('task-description').value;
+      let taskProject = document.getElementById('task-project').value;
+      let taskDueDate = document.getElementById('task-due-date').value;
+      let taskPriority = document.getElementById('task-priority').value;
       const freshTask = taskFactory(taskTitle, taskDescription, taskProject,taskDueDate, taskPriority);
       taskLibrary.push(freshTask);
       console.log(taskLibrary);
       taskForm.reset();
       modal.close();
-    };
+      } else {
+        taskForm.reportValidity();
+      };
     });
-    
   });
+
+    
+
 
 export default taskCreator;

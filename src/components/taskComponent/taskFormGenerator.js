@@ -16,6 +16,7 @@ const newTaskForm = (() => {
   const taskTitleInput = document.createElement('input');
   taskTitleInput.setAttribute('type', 'text');
   taskTitleInput.setAttribute('size', '40');
+  taskTitleInput.required = true;
   taskTitleInput.id = 'task-title';
   taskTitleInput.setAttribute('name', 'task-title');
   taskTitleInput.setAttribute('placeholder', 'Buy milk...');

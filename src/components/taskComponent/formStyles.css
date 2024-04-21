@@ -1,0 +1,53 @@
+.title,
+.description {
+  display: flex;
+  flex-direction: column;
+}
+
+.title,
+.description,
+.project,
+.due-date,
+.priority,
+.submit {
+  padding: 6px;
+}
+
+#task-title,
+#task-description {
+  margin-top: 5px;
+  padding: 10px;
+  
+}
+
+#task-project,
+#task-due-date,
+#task-priority {
+  text-align: center;
+  padding: 3px;
+}
+
+.submit {
+  display: flex;
+  justify-content: end;
+}
+
+label {
+  font-weight:500;
+}
+
+#submit-btn {
+  padding: 10px 15px 10px 15px;
+  font-size: 2.3vh;
+  background-color: #318CE7;
+  color: white;
+  border-color: white;
+  border-radius: 5px;
+  transition: background-color 0.5s;
+}
+
+#submit-btn:hover {
+  background-color: #50C878;
+  cursor: pointer;
+}
+

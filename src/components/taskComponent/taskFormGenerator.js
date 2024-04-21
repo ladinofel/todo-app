@@ -15,6 +15,7 @@ const newTaskForm = (() => {
   taskTitle.textContent = 'Task Title: ';
   const taskTitleInput = document.createElement('input');
   taskTitleInput.setAttribute('type', 'text');
+  taskTitleInput.setAttribute('size', '40');
   taskTitleInput.id = 'task-title';
   taskTitleInput.setAttribute('name', 'task-title');
   taskTitleInput.setAttribute('placeholder', 'Buy milk...');
@@ -48,6 +49,7 @@ const newTaskForm = (() => {
   const taskDescriptionInput = document.createElement('input');
   taskDescriptionInput.setAttribute('type', 'text');
   taskDescriptionInput.id = 'task-description';
+  taskDescriptionInput.setAttribute('size', '50');
   taskDescriptionInput.setAttribute('name', 'project-description');
   taskDescriptionInput.setAttribute('placeholder', "This week's groceries...");
 
@@ -65,7 +67,7 @@ const newTaskForm = (() => {
   priority.classList.add('priority');
   const taskPriority = document.createElement('label');
   taskPriority.setAttribute('for', 'task-priority');
-  taskPriority.textContent = "Task's priority: ";
+  taskPriority.textContent = "Task Priority: ";
   const taskPrioritySelect = document.createElement('select');
   taskPrioritySelect.id = 'task-priority';
   taskPrioritySelect.setAttribute('name', 'task-priority');

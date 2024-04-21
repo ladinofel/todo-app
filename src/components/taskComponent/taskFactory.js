@@ -14,13 +14,18 @@ const taskCreator = (() => {
     let taskProject = document.getElementById('task-project').value;
     let taskDueDate = document.getElementById('task-due-date').value;
     let taskPriority = document.getElementById('task-priority').value;
-    const freshTask = taskFactory(taskTitle, taskDescription, taskProject,taskDueDate, taskPriority);
-    taskLibrary.push(freshTask);
-    console.log(taskLibrary);  
-    taskForm.reset();
-    modal.close();
-
+    if(taskTitle == ''){
+      alert('Please enter a title.');
+      event.preventDefault();
+    } else {
+      const freshTask = taskFactory(taskTitle, taskDescription, taskProject,taskDueDate, taskPriority);
+      taskLibrary.push(freshTask);
+      console.log(taskLibrary);
+      taskForm.reset();
+      modal.close();
+    };
+    });
+    
   });
-});
 
 export default taskCreator;

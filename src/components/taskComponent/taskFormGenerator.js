@@ -12,7 +12,7 @@ const newTaskForm = (() => {
   title.classList.add('title');
   const taskTitle = document.createElement('label');
   taskTitle.setAttribute('for', 'task-title');
-  taskTitle.textContent = 'Task Title: ';
+  taskTitle.textContent = '*Task Title: ';
   const taskTitleInput = document.createElement('input');
   taskTitleInput.setAttribute('type', 'text');
   taskTitleInput.setAttribute('size', '40');
@@ -58,9 +58,10 @@ const newTaskForm = (() => {
   dueDate.classList.add('due-date');
   const taskDueDate = document.createElement('label');
   taskDueDate.setAttribute('for', 'task-due-date');
-  taskDueDate.textContent = 'Due date: ';
+  taskDueDate.textContent = '*Due date: ';
   const taskDueDateInput = document.createElement('input');
   taskDueDateInput.setAttribute('type', 'date');
+  taskDueDateInput.required = true;
   taskDueDateInput.id = 'task-due-date';
   taskDueDateInput.setAttribute('name', 'task-due-date');
 
@@ -82,6 +83,11 @@ const newTaskForm = (() => {
   optionLow.textContent = 'Low';
   optionLow.value = 'low';
 
+  const required = document.createElement('div');
+  required.classList.add('notice');
+  const requiredNotice = document.createElement('p');
+  requiredNotice.textContent = '*Required fields.';
+
   const submit = document.createElement('div');
   submit.classList.add('submit');
   const submitBtn = document.createElement('button');
@@ -90,13 +96,14 @@ const newTaskForm = (() => {
   submitBtn.textContent = 'Create Task';
 
   submit.append(submitBtn);
+  required.append(requiredNotice);
   taskPrioritySelect.append(optionHigh, optionMedium, optionLow);
   priority.append(taskPriority, taskPrioritySelect);
   dueDate.append(taskDueDate, taskDueDateInput);
   description.append(taskDescription, taskDescriptionInput);
   project.append(taskProject, taskProjectSelect);
   title.append(taskTitle, taskTitleInput);
-  newForm.append(title, description, project, dueDate, priority, submit);
+  newForm.append(title, description, project, dueDate, priority, required, submit);
   newDialog.append(newForm);
   workSpace.append(newDialog);
 

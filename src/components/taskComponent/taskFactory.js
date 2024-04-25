@@ -3,12 +3,13 @@ const taskFactory = (title, description, project, dueDate, priority) => {
   return {title, description, project, dueDate, priority};
 };
 
-const taskCreator = (() => {
+let taskLibrary = [];
+
+const taskCreator = (() => {  
   const taskForm = document.getElementById('task-form');
-  const modal = document.querySelector('#modal');
-  let taskLibrary = [];
+  const modal = document.querySelector('#modal');  
   const submitBtn = document.getElementById('submit-btn');
-  submitBtn.addEventListener('click', () => {
+  const submitHandler = (() => {
     if(taskForm.checkValidity()){
       let taskTitle = document.getElementById('task-title').value;
       let taskDescription = document.getElementById('task-description').value;
@@ -20,13 +21,17 @@ const taskCreator = (() => {
       console.log(taskLibrary);
       taskForm.reset();
       modal.close();
-      } else {
-        taskForm.reportValidity();
+      submitBtn.removeEventListener('click', submitHandler);
+      } else {    
+      taskForm.reportValidity();
       };
     });
+    
+    submitBtn.addEventListener('click', submitHandler);
   });
 
     
 
 
 export default taskCreator;
+//export {taskLibrary};

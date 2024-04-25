@@ -51,3 +51,8 @@ label {
   cursor: pointer;
 }
 
+.notice {
+  text-align: end;
+  padding: 0px 1vw 0px 0px;
+  font-size: small;
+}

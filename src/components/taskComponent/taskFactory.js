@@ -1,3 +1,4 @@
+import taskDrawer from "./taskGUI";
 
 const taskFactory = (title, description, project, dueDate, priority) => {
   return {title, description, project, dueDate, priority};
@@ -22,6 +23,7 @@ const taskCreator = (() => {
       taskForm.reset();
       modal.close();
       submitBtn.removeEventListener('click', submitHandler);
+      taskDrawer();
       } else {    
       taskForm.reportValidity();
       };
@@ -31,7 +33,8 @@ const taskCreator = (() => {
   });
 
     
+  
 
 
 export default taskCreator;
-//export {taskLibrary};
+export {taskLibrary};

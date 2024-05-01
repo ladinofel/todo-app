@@ -2,3 +2,12 @@
   padding: 20px;
   border: solid;
 }
+
+.sub-container {
+  display: flex;
+  gap: 1vw;
+}
+
+.task-sub-heading {
+  font-weight: 600;
+}

@@ -36,7 +36,7 @@ const newTaskForm = (() => {
     projectOptions.forEach(function(optionText) {
       const option = document.createElement('option');
       option.text = optionText;
-      option.value = optionText.toLowerCase().replace(/\s+/g, '-');
+      option.value = optionText.replace(/\s+/g, '-');
       taskProjectSelect.appendChild(option);
     });   
   });
@@ -75,13 +75,13 @@ const newTaskForm = (() => {
   taskPrioritySelect.setAttribute('name', 'task-priority');
   const optionHigh = document.createElement('option');
   optionHigh.textContent = 'High';
-  optionHigh.value = 'high';
+  optionHigh.value = 'High';
   const optionMedium = document.createElement('option');
   optionMedium.textContent = 'Medium';
-  optionMedium.value = 'medium';
+  optionMedium.value = 'Medium';
   const optionLow = document.createElement('option');
   optionLow.textContent = 'Low';
-  optionLow.value = 'low';
+  optionLow.value = 'Low';
 
   const required = document.createElement('div');
   required.classList.add('notice');

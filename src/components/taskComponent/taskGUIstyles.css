@@ -1,13 +1,18 @@
 .visual-task {
   padding: 20px;
-  border: solid;
+  border-width: thin;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  
 }
 
 .sub-container {
-  display: flex;
-  gap: 1vw;
+  display: flex;  
+  gap: 0.5vw;
 }
 
 .task-sub-heading {
   font-weight: 600;
 }
+

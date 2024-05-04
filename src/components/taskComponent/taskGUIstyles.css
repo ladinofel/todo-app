@@ -1,10 +1,12 @@
+
 .visual-task {
-  padding: 20px;
-  border-width: thin;
-  border-radius: 15px;
+  padding: 10px;
+  border:solid;
+  border-width:1px;
+  border-radius: 15px;  
   display: flex;
   justify-content: space-between;
-  
+  margin-bottom: 2vh;
 }
 
 .sub-container {
@@ -16,3 +18,10 @@
   font-weight: 600;
 }
 
+.sub-container > p {
+  margin: 0;
+}
+
+#task-container {
+  padding: 1vw;
+}

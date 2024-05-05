@@ -1,17 +1,12 @@
 
 .visual-task {
+  display: grid;
+  grid-template-columns: 25% 25% 12.5% 12.5% 12.5% 12.5%;
   padding: 10px;
   border:solid;
   border-width:1px;
-  border-radius: 15px;  
-  display: flex;
-  justify-content: space-between;
+  border-radius: 15px;    
   margin-bottom: 2vh;
-}
-
-.sub-container {
-  display: flex;  
-  gap: 0.5vw;
 }
 
 .task-sub-heading {
@@ -24,4 +19,15 @@
 
 #task-container {
   padding: 1vw;
+}
+
+#btn-sub-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.task-icons {
+  height: 3vh;
+  width: auto;
 }

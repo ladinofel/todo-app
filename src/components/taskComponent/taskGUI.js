@@ -48,7 +48,8 @@ const taskDrawer = (() => {
   dateInfo.textContent = `${taskLibrary[taskLibrary.length - 1].dueDate}`;
   dateContainer.append(date, dateInfo);
 
-  const priorityContainer = document.createElement('div'); 
+  const priorityContainer = 
+  document.createElement('div'); 
   priorityContainer.classList.add('sub-container');
   priorityContainer.id = 'priority-sub-container'; 
   const priority = document.createElement('p');
@@ -64,15 +65,17 @@ const taskDrawer = (() => {
   const doneIcon = new Image();
   doneIcon.src = Done;
   doneIcon.classList.add('task-icons');
+  doneIcon.id = 'done-icon';
   const editIcon = new Image();
   editIcon.src = Edit;
   editIcon.classList.add('task-icons');
+  editIcon.id = 'edit-icon';
   const deleteIcon = new Image();
   deleteIcon.src = Delete;
   deleteIcon.classList.add('task-icons');
+  deleteIcon.id='delete-icon';
   btnContainer.append(doneIcon, editIcon, deleteIcon);
-
-   
+ 
   (titleInfo, descriptionInfo, projectInfo, dateInfo, priorityInfo).classList.add('task-text');
   
   taskContainer.append(titleContainer, descriptionContainer, projectContainer, dateContainer, priorityContainer, btnContainer);

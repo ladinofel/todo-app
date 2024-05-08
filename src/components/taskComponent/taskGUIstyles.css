@@ -23,11 +23,15 @@
 
 #btn-sub-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
 .task-icons {
-  height: 3vh;
+  height: 3.5vh;
   width: auto;
+}
+
+.task-icons:hover {
+  cursor: pointer;
 }

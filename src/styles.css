@@ -2,6 +2,7 @@
   font-family: 'quicksand';
   src: url('/src/fonts/Quicksand-VariableFont_wght.ttf');
   font-style: normal;
+  
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 20vw 80vw;
+  grid-template-columns: 15vw 85vw;
   grid-template-rows: 10vh 90vh;
 }
 
@@ -48,11 +49,11 @@ img {
 
 .left-menu,
 .project-menu {
-  margin: 10vh 0 10vh 3vw;
+  margin: 10vh 0 10vh 1vw;
 }
 
 .icon-text {
-  font-size:medium;
+  font-size:large;
 }
 
 a {

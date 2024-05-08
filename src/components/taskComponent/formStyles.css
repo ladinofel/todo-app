@@ -11,8 +11,13 @@
 .priority,
 .submit {
   padding: 6px;
+  font-size: 20px;
 }
 
+input,
+select {
+  font-size:large;
+}
 #task-title,
 #task-description {
   margin-top: 5px;
@@ -44,6 +49,7 @@ label {
   border-color: white;
   border-radius: 5px;
   transition: background-color 0.5s;
+  font-size: large;
 }
 
 #submit-btn:hover {
@@ -56,3 +62,4 @@ label {
   padding: 0px 1vw 0px 0px;
   font-size: small;
 }
+

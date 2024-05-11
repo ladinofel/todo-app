@@ -30,8 +30,9 @@
 .task-icons {
   height: 3.5vh;
   width: auto;
+
 }
 
 .task-icons:hover {
-  cursor: pointer;
+    cursor: pointer;
 }

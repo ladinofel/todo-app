@@ -34,5 +34,6 @@
 }
 
 .task-icons:hover {
+    outline: 4px solid transparent;
     cursor: pointer;
 }

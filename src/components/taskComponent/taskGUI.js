@@ -14,8 +14,7 @@ const taskDrawer = (() => {
   clearContainer();
 
   const arrayLibrary = Array.from(taskLibrary);
-  arrayLibrary.sort((a,b) => new Date(a.dueDate) - new Date(b.dueDate));
-  console.log(arrayLibrary); 
+  arrayLibrary.sort((a,b) => new Date(a.dueDate) - new Date(b.dueDate)); 
   for(let i = 0; i < arrayLibrary.length; i++){    
     const taskContainer = document.createElement('div');  
     taskContainer.classList.add('visual-task');

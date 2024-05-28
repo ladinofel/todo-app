@@ -16,10 +16,25 @@ const headerGenerator = (() => {
   timeInput.setAttribute('type', 'checkbox');
   const timeSpan = document.createElement('span');
   timeSpan.classList.add('slider-round');
+  const sortTimeTitle = document.createElement('p');
+  sortTimeTitle.textContent = 'Sort by time';
 
+  const sortByPriority = document.createElement('div');
+  sortByPriority.classList.add('sort-option');
+  const priorityLabel = document.createElement('label');
+  priorityLabel.classList.add('switch');
+  const priorityInput = document.createElement('input');
+  priorityInput.setAttribute('type', 'checkbox');
+  const prioritySpan = document.createElement('span');
+  prioritySpan.classList.add('slider-round');
+  const sortPriorityTitle = document.createElement('p');
+  sortPriorityTitle.textContent = 'Sort by priority';
+
+  priorityLabel.append(priorityInput, prioritySpan);
+  sortByPriority.append(priorityLabel, sortPriorityTitle);
   timeLabel.append(timeInput, timeSpan);
-  sortByTime.append(timeLabel);
-  headerSortOptions.append(sortByTime);
+  sortByTime.append(timeLabel, sortTimeTitle);
+  headerSortOptions.append(sortByTime, sortByPriority);
 
 
   const headerOptions = document.createElement('div');
@@ -46,7 +61,7 @@ const headerGenerator = (() => {
   newProject.append(projectIcon, newProjectTitle);
   newTask.append(taskIcon, newTaskTitle);
   headerOptions.append(newProject, newTask);
-  header.append(headerOptions, headerSortOptions);
+  header.append(headerSortOptions, headerOptions);
 
 
 })();

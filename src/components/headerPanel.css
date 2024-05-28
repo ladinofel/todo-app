@@ -60,3 +60,14 @@
   .slider-round:before {
     border-radius: 50%;
   }
+
+  .sort-option {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin-left: 1vw;
+  }
+
+  .header-sort-options {
+    display: flex;
+  }

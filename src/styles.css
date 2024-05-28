@@ -72,7 +72,7 @@ a:hover {
 #header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .header-options {

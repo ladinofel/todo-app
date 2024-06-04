@@ -1,6 +1,7 @@
 import './headerPanel.css';
 import Add from '/src/icons/add-circle-outline.svg';
 
+
 const headerGenerator = (() => {
 
   const header = document.querySelector('#header');
@@ -14,6 +15,8 @@ const headerGenerator = (() => {
   timeLabel.classList.add('switch');
   const timeInput = document.createElement('input');
   timeInput.setAttribute('type', 'checkbox');
+  timeInput.id = 'switch-time';
+  timeInput.checked = true;
   const timeSpan = document.createElement('span');
   timeSpan.classList.add('slider-round');
   const sortTimeTitle = document.createElement('p');
@@ -25,6 +28,7 @@ const headerGenerator = (() => {
   priorityLabel.classList.add('switch');
   const priorityInput = document.createElement('input');
   priorityInput.setAttribute('type', 'checkbox');
+  priorityInput.id = 'switch-priority';
   const prioritySpan = document.createElement('span');
   prioritySpan.classList.add('slider-round');
   const sortPriorityTitle = document.createElement('p');
@@ -66,4 +70,23 @@ const headerGenerator = (() => {
 
 })();
 
-export default headerGenerator;
+const switchLogic = (() => {  
+  const switchPriority = document.getElementById('switch-priority');
+  const switchTime = document.getElementById('switch-time');  
+
+  switchPriority.addEventListener('click', () => {
+    switchTime.checked = !switchPriority.checked;
+    console.log('Sort by priority is ON');
+    console.log(switchTime.checked);
+  });
+
+  switchTime.addEventListener('click', () => {
+    switchPriority.checked = !switchTime.checked;
+    console.log('Sort by time is ON');
+    console.log(switchPriority.checked);
+  });
+  
+
+})();
+
+export default headerGenerator; switchLogic;

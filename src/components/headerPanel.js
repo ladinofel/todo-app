@@ -1,5 +1,6 @@
 import './headerPanel.css';
 import Add from '/src/icons/add-circle-outline.svg';
+import taskDrawer from './taskComponent/taskGUI';
 
 
 const headerGenerator = (() => {
@@ -76,12 +77,14 @@ const switchLogic = (() => {
 
   switchPriority.addEventListener('click', () => {
     switchTime.checked = !switchPriority.checked;
+    taskDrawer();
     console.log('Sort by priority is ON');
     console.log(switchTime.checked);
   });
 
   switchTime.addEventListener('click', () => {
     switchPriority.checked = !switchTime.checked;
+    taskDrawer();
     console.log('Sort by time is ON');
     console.log(switchPriority.checked);
   });

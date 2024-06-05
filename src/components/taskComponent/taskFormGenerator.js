@@ -74,14 +74,14 @@ const newTaskForm = (() => {
   taskPrioritySelect.id = 'task-priority';
   taskPrioritySelect.setAttribute('name', 'task-priority');
   const optionHigh = document.createElement('option');
-  optionHigh.textContent = 'High';
-  optionHigh.value = 'High';
+  optionHigh.textContent = '1. High';
+  optionHigh.value = '1. High';
   const optionMedium = document.createElement('option');
-  optionMedium.textContent = 'Medium';
-  optionMedium.value = 'Medium';
+  optionMedium.textContent = '2. Medium';
+  optionMedium.value = '2. Medium';
   const optionLow = document.createElement('option');
-  optionLow.textContent = 'Low';
-  optionLow.value = 'Low';
+  optionLow.textContent = '3. Low';
+  optionLow.value = '3. Low';
 
   const required = document.createElement('div');
   required.classList.add('notice');

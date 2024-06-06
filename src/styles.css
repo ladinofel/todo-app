@@ -87,3 +87,8 @@ a:hover {
   gap: 1vw;
 }
 
+.display-option {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}

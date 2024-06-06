@@ -3,7 +3,10 @@ import Edit from './taskIcons/document-text-outline.svg';
 import Delete from './taskIcons/trash-outline.svg';
 import { taskLibrary } from "./taskFactory";
 
-const taskDrawer = (() => {
+
+
+
+const taskDrawer = ((array) => {
  
   const unitDrawer = ((array) => {
     const container = document.getElementById('task-container');  

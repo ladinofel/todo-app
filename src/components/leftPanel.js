@@ -12,46 +12,82 @@ const menuGenerator = (() => {
   const leftMenu = document.createElement('div');
   leftMenu.classList.add('left-menu');
 
-  const today = document.createElement('div');
-  today.classList.add('menu-icon');
-  const todayIcon = new Image();
-  todayIcon.src = Today;
-  const todayText = document.createElement('a');
-  todayText.textContent = 'Today';
-  todayText.classList.add('icon-text');
-  today.append(todayIcon, todayText);
+  const displayAll = document.createElement('div');
+  displayAll.classList.add('display-option');
+  const allLabel = document.createElement('label');
+  allLabel.classList.add('switch');
+  const allInput = document.createElement('input');
+  allInput.setAttribute('type', 'checkbox');
+  allInput.id = 'switch-all';
+  const allSpan = document.createElement('span');
+  allSpan.classList.add('slider-round');
+  const displayAllTitle = document.createElement('p');
+  displayAllTitle.textContent = 'All';
 
-  const week = document.createElement('div');
-  week.classList.add('menu-icon');
-  const weekIcon = new Image();
-  weekIcon.src = Week;
-  const weekText = document.createElement('a');
-  weekText.textContent = 'This week';
-  weekText.classList.add('icon-text');
-  week.append(weekIcon, weekText);
+  allLabel.append(allInput, allSpan);
+  displayAll.append(allLabel, displayAllTitle);
 
+  const displayToday = document.createElement('div');
+  displayToday.classList.add('display-option');
+  const todayLabel = document.createElement('label');
+  todayLabel.classList.add('switch');
+  const todayInput = document.createElement('input');
+  todayInput.setAttribute('type', 'checkbox');
+  todayInput.id = 'switch-today';
+  const todaySpan = document.createElement('span');
+  todaySpan.classList.add('slider-round');
+  const displayTodayTitle = document.createElement('p');
+  displayTodayTitle.textContent = 'Today';
 
-  const month = document.createElement('div');
-  month.classList.add('menu-icon');
-  const monthIcon = new Image();
-  monthIcon.src = Month;
-  const monthText = document.createElement('a');
-  monthText.textContent = 'This month';
-  monthText.classList.add('icon-text');
-  month.append(monthIcon, monthText);
+  todayLabel.append(todayInput, todaySpan);
+  displayToday.append(todayLabel, displayTodayTitle);
 
-  const sometime = document.createElement('div');
-  sometime.classList.add('menu-icon');
-  const sometimeIcon = new Image();
-  sometimeIcon.src = Sometime;
-  const sometimeText = document.createElement('a');
-  sometimeText.textContent = 'Sometime';
-  sometimeText.classList.add('icon-text');
-  sometime.append(sometimeIcon, sometimeText);
+  const displayWeek = document.createElement('div');
+  displayWeek.classList.add('display-option');
+  const weekLabel = document.createElement('label');
+  weekLabel.classList.add('switch');
+  const weekInput = document.createElement('input');
+  weekInput.setAttribute('type', 'checkbox');
+  weekInput.id = 'switch-week';
+  const weekSpan = document.createElement('span');
+  weekSpan.classList.add('slider-round');
+  const displayWeekTitle = document.createElement('p');
+  displayWeekTitle.textContent = 'This week';
 
+  weekLabel.append(weekInput, weekSpan);
+  displayWeek.append(weekLabel, displayWeekTitle);
 
+  const displayMonth = document.createElement('div');
+  displayMonth.classList.add('display-option');
+  const monthLabel = document.createElement('label');
+  monthLabel.classList.add('switch');
+  const monthInput = document.createElement('input');
+  monthInput.setAttribute('type', 'checkbox');
+  monthInput.id = 'switch-month';
+  const monthSpan = document.createElement('span');
+  monthSpan.classList.add('slider-round');
+  const displayMonthTitle = document.createElement('p');
+  displayMonthTitle.textContent = 'This month';
 
-  leftMenu.append(today, week, month, sometime);
+  monthLabel.append(monthInput, monthSpan);
+  displayMonth.append(monthLabel, displayMonthTitle);
+
+  const displayFuture = document.createElement('div');
+  displayFuture.classList.add('display-option');
+  const futureLabel = document.createElement('label');
+  futureLabel.classList.add('switch');
+  const futureInput = document.createElement('input');
+  futureInput.setAttribute('type', 'checkbox');
+  futureInput.id = 'switch-future';
+  const futureSpan = document.createElement('span');
+  futureSpan.classList.add('slider-round');
+  const displayFutureTitle = document.createElement('p');
+  displayFutureTitle.textContent = 'Into the future';
+
+  futureLabel.append(futureInput, futureSpan);
+  displayFuture.append(futureLabel, displayFutureTitle);
+
+  leftMenu.append(displayAll, displayToday, displayWeek, displayMonth, displayFuture);
   leftColumn.append(leftMenu);
 
 })();

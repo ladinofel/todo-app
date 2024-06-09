@@ -47,9 +47,9 @@ img {
   align-items: center;
 }
 
-.left-menu,
+.left-menu, 
 .project-menu {
-  margin: 10vh 0 10vh 1vw;
+  margin: 5vh 0 1vh 1vw;
 }
 
 .icon-text {

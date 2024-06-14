@@ -19,6 +19,7 @@ const menuGenerator = (() => {
   const allInput = document.createElement('input');
   allInput.setAttribute('type', 'checkbox');
   allInput.id = 'switch-all';
+  allInput.classList.add('time-option');
   allInput.checked = true;
   const allSpan = document.createElement('span');
   allSpan.classList.add('slider-round');
@@ -34,6 +35,7 @@ const menuGenerator = (() => {
   todayLabel.classList.add('switch');
   const todayInput = document.createElement('input');
   todayInput.setAttribute('type', 'checkbox');
+  todayInput.classList.add('time-option');
   todayInput.id = 'switch-today';
   const todaySpan = document.createElement('span');
   todaySpan.classList.add('slider-round');
@@ -49,6 +51,7 @@ const menuGenerator = (() => {
   weekLabel.classList.add('switch');
   const weekInput = document.createElement('input');
   weekInput.setAttribute('type', 'checkbox');
+  weekInput.classList.add('time-option');
   weekInput.id = 'switch-week';
   const weekSpan = document.createElement('span');
   weekSpan.classList.add('slider-round');
@@ -64,6 +67,7 @@ const menuGenerator = (() => {
   monthLabel.classList.add('switch');
   const monthInput = document.createElement('input');
   monthInput.setAttribute('type', 'checkbox');
+  monthInput.classList.add('time-option');
   monthInput.id = 'switch-month';
   const monthSpan = document.createElement('span');
   monthSpan.classList.add('slider-round');
@@ -79,6 +83,7 @@ const menuGenerator = (() => {
   futureLabel.classList.add('switch');
   const futureInput = document.createElement('input');
   futureInput.setAttribute('type', 'checkbox');
+  futureInput.classList.add('time-option');
   futureInput.id = 'switch-future';
   const futureSpan = document.createElement('span');
   futureSpan.classList.add('slider-round');
@@ -91,6 +96,19 @@ const menuGenerator = (() => {
   leftMenu.append(displayAll, displayToday, displayWeek, displayMonth, displayFuture);
   leftColumn.append(leftMenu);
 
+})();
+
+const timeLogic = (() => {
+  const timeOptions = document.querySelectorAll('.time-option');
+  timeOptions.forEach(button => {
+    button.addEventListener('click', () => {
+      timeOptions.forEach(otherButton => {
+        if(otherButton !== button) {
+          otherButton.checked = false;
+        }
+      });
+    });
+  });
 })();
 
 const projectGenerator = (() => {
@@ -106,6 +124,7 @@ const projectGenerator = (() => {
   allProjectsLabel.classList.add('switch');
   const allProjectsInput = document.createElement('input');
   allProjectsInput.setAttribute('type', 'checkbox');
+  allProjectsInput.classList.add('project-option');
   allProjectsInput.id = 'switch-work';
   allProjectsInput.checked = true;
   const allProjectsSpan = document.createElement('span');
@@ -123,6 +142,7 @@ const projectGenerator = (() => {
   const workInput = document.createElement('input');
   workInput.setAttribute('type', 'checkbox');
   workInput.id = 'switch-work';
+  workInput.classList.add('project-option');
   const workSpan = document.createElement('span');
   workSpan.classList.add('slider-round');
   const workDisplayTitle = document.createElement('p');
@@ -138,6 +158,7 @@ const projectGenerator = (() => {
   const homeInput = document.createElement('input');
   homeInput.setAttribute('type', 'checkbox');
   homeInput.id = 'switch-home';
+  homeInput.classList.add('project-option');
   const homeSpan = document.createElement('span');
   homeSpan.classList.add('slider-round');
   const homeDisplayTitle = document.createElement('p');
@@ -153,6 +174,7 @@ const projectGenerator = (() => {
   const schoolInput = document.createElement('input');
   schoolInput.setAttribute('type', 'checkbox');
   schoolInput.id = 'switch-school';
+  schoolInput.classList.add('project-option');
   const schoolSpan = document.createElement('span');
   schoolSpan.classList.add('slider-round');
   const schoolDisplayTitle = document.createElement('p');
@@ -168,6 +190,7 @@ const projectGenerator = (() => {
   const personalInput = document.createElement('input');
   personalInput.setAttribute('type', 'checkbox');
   personalInput.id = 'switch-personal';
+  personalInput.classList.add('project-option');
   const personalSpan = document.createElement('span');
   personalSpan.classList.add('slider-round');
   const personalDisplayTitle = document.createElement('p');
@@ -183,6 +206,7 @@ const projectGenerator = (() => {
   const otherInput = document.createElement('input');
   otherInput.setAttribute('type', 'checkbox');
   otherInput.id = 'switch-other';
+  otherInput.classList.add('project-option');
   const otherSpan = document.createElement('span');
   otherSpan.classList.add('slider-round');
   const otherDisplayTitle = document.createElement('p');
@@ -194,6 +218,20 @@ const projectGenerator = (() => {
   projectMenu.append(allProjectsDisplay, workDisplay, homeDisplay, schoolDisplay, personalDisplay, otherDisplay);
   leftColumn.append(projectMenu);
 
+  
+})();
+
+const projectLogic = (() => {
+  const projectOptions = document.querySelectorAll('.project-option');
+  projectOptions.forEach(button => {
+    button.addEventListener('click', () => {
+      projectOptions.forEach(otherButton => {
+        if(otherButton !== button) {
+          otherButton.checked = false;
+        }  
+      });
+    });
+  });
 })();
 
 

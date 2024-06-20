@@ -6,7 +6,7 @@ import { taskLibrary } from "./taskFactory";
 
 
 
-const taskDrawer = ((array) => {
+const taskDrawer = (() => {
  
   const unitDrawer = ((array) => {
     const container = document.getElementById('task-container');  
@@ -99,6 +99,95 @@ const taskDrawer = ((array) => {
     };
   });
 
+  const timeChecker = ((array) => {
+    const displayAll = document.getElementById('switch-all');
+    const displayToday = document.getElementById('switch-today');
+    const displayWeek = document.getElementById('switch-week');
+    const displayMonth = document.getElementById('switch-month');
+    const displayFuture = document.getElementById('switch-future');
+
+    if(displayAll.checked){
+      unitDrawer(array);
+    } else if (displayToday.checked){
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      const formattedToday = `${year}-${month}-${day}`;
+      const tasksToday = array.filter(task => task.dueDate === formattedToday);
+      unitDrawer(tasksToday);  
+
+    } else if (displayWeek.checked){
+      const calculateWeek = (() => {
+        const today = new Date();
+        const dayOfWeek = today.getDay();
+        const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+
+        const startOfWeek = new Date(today);
+        startOfWeek.setDate(today.getDate() + diffToMonday);
+        startOfWeek.setHours(0, 0, 0, 0);
+
+        const endOfWeek = new Date(startOfWeek);
+        endOfWeek.setDate(startOfWeek.getDate() + 6);
+        endOfWeek.setHours(23, 59, 59, 999);
+
+        return {startOfWeek, endOfWeek};
+      });
+
+      const filterByWeek = ((array) => {
+        const { startOfWeek, endOfWeek} = calculateWeek();
+        
+        return array.filter(task => {
+          const taskDate = new Date(task.dueDate);
+          return taskDate >= startOfWeek && taskDate <= endOfWeek;
+        });
+      });
+      const tasksDueThisWeek = filterByWeek(array);
+      unitDrawer(tasksDueThisWeek);
+
+    } else if (displayMonth.checked){
+      const calculateMonthYear = (() => {
+        const today = new Date();
+        const currentMonth = today.getMonth() + 1;
+        const currentYear = today.getFullYear();
+        return {currentMonth, currentYear};
+      });
+
+      const filterByMonth = ((array) => {
+        const {currentMonth, currentYear} = calculateMonthYear();
+
+        return array.filter(task => {
+          const taskDate = new Date(task.dueDate);
+          const taskMonth = taskDate.getMonth() + 1;
+          const taskYear = taskDate.getFullYear();
+          return taskMonth === currentMonth && taskYear === currentYear;
+        });
+      });
+      const tasksDueThisMonth = filterByMonth(array);
+      unitDrawer(tasksDueThisMonth);
+    } else if (displayFuture.checked){
+      const calculateMonthYear = (() => {
+        const today = new Date();
+        const currentMonth = today.getMonth() + 1;
+        const currentYear = today.getFullYear();
+        return {currentMonth, currentYear};
+      });
+
+      const filterByFuture = ((array) => {
+        const {currentMonth, currentYear} = calculateMonthYear();
+
+        return array.filter(task => {
+          const taskDate = new Date(task.dueDate);
+          const taskMonth = taskDate.getMonth() + 1;
+          const taskYear = taskDate.getFullYear();
+          return taskYear > currentYear || (taskYear === currentYear && taskMonth > currentMonth);
+        });        
+      });
+      const tasksDueFuture = filterByFuture(array);
+      unitDrawer(tasksDueFuture);
+    }
+  });
+   
   const sortChecker = (() => {
     const switchPriority = document.getElementById('switch-priority');
     const arrayLibrary = Array.from(taskLibrary);
@@ -110,14 +199,28 @@ const taskDrawer = ((array) => {
       }
       return new Date(a.dueDate) - new Date(b.dueDate);
       });
-      unitDrawer(arrayLibrary);
+      timeChecker(arrayLibrary);
+      //unitDrawer(arrayLibrary);
     } else {
       arrayLibrary.sort((a,b) => new Date(a.dueDate) - new Date(b.dueDate));
-      unitDrawer(arrayLibrary);
+      timeChecker(arrayLibrary);
+      //unitDrawer(arrayLibrary);
     }
   }); 
   sortChecker();
+
+  const timeOptionsTrigger = (() => {
+    const timeOptions = document.querySelectorAll('.time-option');
+    timeOptions.forEach(button => {
+      button.addEventListener('click', () => {
+        sortChecker();
+      });
+    });
   });
+  timeOptionsTrigger();
+});
+
+
 
   
 export default taskDrawer;

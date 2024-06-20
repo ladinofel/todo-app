@@ -23,7 +23,7 @@ const taskCreator = (() => {
       taskForm.reset();
       modal.close();
       submitBtn.removeEventListener('click', submitHandler);
-      taskDrawer(taskLibrary);
+      taskDrawer();
       } else {    
       taskForm.reportValidity();
       };

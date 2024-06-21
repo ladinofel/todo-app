@@ -99,15 +99,60 @@ const taskDrawer = (() => {
     };
   });
 
+  const projectChecker = ((array) => {
+    const displayAllProjects = document.getElementById('switch-all-projects')
+    const displayWork = document.getElementById('switch-work');
+    const displayHome = document.getElementById('switch-home');
+    const displaySchool = document.getElementById('switch-school');
+    //const displayPersonal = document.getElementById('switch-personal');
+    const displayOther = document.getElementById('switch-other');
+
+    if (displayAllProjects.checked){
+      unitDrawer(array);
+    } else if (displayWork.checked){
+      const filterByWork = ((array) => {
+        return array.filter(task => {
+          return task.project === 'Work';
+        });
+      });
+      const tasksByWork = filterByWork(array);
+      unitDrawer(tasksByWork);
+    } else if (displayHome.checked){
+      const filterByHome = ((array) => {
+        return array.filter(task => {
+          return task.project === 'Home';
+        });
+      });
+      const tasksByHome = filterByHome(array);
+      unitDrawer(tasksByHome);
+    } else if (displaySchool.checked){
+      const filterBySchool = ((array) => {
+        return array.filter(task => {
+          return task.project === 'School';
+        });
+      });
+      const tasksBySchool = filterBySchool(array);
+      unitDrawer(tasksBySchool);
+    } else if (displayOther.checked){
+      const filterByOther = ((array) => {
+        return array.filter(task => {
+          return task.project === 'Other';
+        });
+      });
+      const tasksByOther = filterByOther(array);
+      unitDrawer(tasksByOther);
+    };    
+  });
+
   const timeChecker = ((array) => {
-    const displayAll = document.getElementById('switch-all');
+    const displayAll = document.getElementById('switch-all-time');
     const displayToday = document.getElementById('switch-today');
     const displayWeek = document.getElementById('switch-week');
     const displayMonth = document.getElementById('switch-month');
     const displayFuture = document.getElementById('switch-future');
 
     if(displayAll.checked){
-      unitDrawer(array);
+      projectChecker(array);
     } else if (displayToday.checked){
       const today = new Date();
       const year = today.getFullYear();
@@ -115,7 +160,7 @@ const taskDrawer = (() => {
       const day = String(today.getDate()).padStart(2, '0');
       const formattedToday = `${year}-${month}-${day}`;
       const tasksToday = array.filter(task => task.dueDate === formattedToday);
-      unitDrawer(tasksToday);  
+      projectChecker(tasksToday);  
 
     } else if (displayWeek.checked){
       const calculateWeek = (() => {
@@ -143,7 +188,7 @@ const taskDrawer = (() => {
         });
       });
       const tasksDueThisWeek = filterByWeek(array);
-      unitDrawer(tasksDueThisWeek);
+      projectChecker(tasksDueThisWeek);
 
     } else if (displayMonth.checked){
       const calculateMonthYear = (() => {
@@ -164,7 +209,7 @@ const taskDrawer = (() => {
         });
       });
       const tasksDueThisMonth = filterByMonth(array);
-      unitDrawer(tasksDueThisMonth);
+      projectChecker(tasksDueThisMonth);
     } else if (displayFuture.checked){
       const calculateMonthYear = (() => {
         const today = new Date();
@@ -184,7 +229,7 @@ const taskDrawer = (() => {
         });        
       });
       const tasksDueFuture = filterByFuture(array);
-      unitDrawer(tasksDueFuture);
+      projectChecker(tasksDueFuture);
     }
   });
    
@@ -218,6 +263,17 @@ const taskDrawer = (() => {
     });
   });
   timeOptionsTrigger();
+
+  const projectOptionsTrigger = (() => {
+    const projectOptions = document.querySelectorAll('.project-option');
+    projectOptions.forEach(button => {
+      button.addEventListener('click', () => {
+        sortChecker();
+      });
+    });
+  });
+  projectOptionsTrigger();
+  
 });
 
 

@@ -31,7 +31,7 @@ const newTaskForm = (() => {
   taskProjectSelect.setAttribute('name', 'task-project')
   
   const optionsBuilder = (() => {
-    const projectOptions = ['Work', 'Home', 'Leisure', 'Other'];   
+    const projectOptions = ['Work', 'Home', 'School', 'Other'];   
     taskProjectSelect.innerHTML = '';    
     projectOptions.forEach(function(optionText) {
       const option = document.createElement('option');

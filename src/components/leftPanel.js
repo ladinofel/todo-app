@@ -18,7 +18,7 @@ const menuGenerator = (() => {
   allLabel.classList.add('switch');
   const allInput = document.createElement('input');
   allInput.setAttribute('type', 'checkbox');
-  allInput.id = 'switch-all';
+  allInput.id = 'switch-all-time';
   allInput.classList.add('time-option');
   allInput.checked = true;
   const allSpan = document.createElement('span');
@@ -107,6 +107,7 @@ const timeLogic = (() => {
           otherButton.checked = false;
         }
       });
+
     });
   });
 })();
@@ -125,7 +126,7 @@ const projectGenerator = (() => {
   const allProjectsInput = document.createElement('input');
   allProjectsInput.setAttribute('type', 'checkbox');
   allProjectsInput.classList.add('project-option');
-  allProjectsInput.id = 'switch-work';
+  allProjectsInput.id = 'switch-all-projects';
   allProjectsInput.checked = true;
   const allProjectsSpan = document.createElement('span');
   allProjectsSpan.classList.add('slider-round');
@@ -183,6 +184,7 @@ const projectGenerator = (() => {
   schoolLabel.append(schoolInput, schoolSpan);
   schoolDisplay.append(schoolLabel, schoolDisplayTitle);
 
+  /*
   const personalDisplay = document.createElement('div');
   personalDisplay.classList.add('display-option');
   const personalLabel = document.createElement('label');
@@ -198,6 +200,7 @@ const projectGenerator = (() => {
 
   personalLabel.append(personalInput, personalSpan);
   personalDisplay.append(personalLabel, personalDisplayTitle);
+  */
 
   const otherDisplay = document.createElement('div');
   otherDisplay.classList.add('display-option');
@@ -215,7 +218,7 @@ const projectGenerator = (() => {
   otherLabel.append(otherInput, otherSpan);
   otherDisplay.append(otherLabel, otherDisplayTitle);
 
-  projectMenu.append(allProjectsDisplay, workDisplay, homeDisplay, schoolDisplay, personalDisplay, otherDisplay);
+  projectMenu.append(allProjectsDisplay, workDisplay, homeDisplay, schoolDisplay, otherDisplay);
   leftColumn.append(projectMenu);
 
   
